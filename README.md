@@ -139,7 +139,8 @@ Cloudflare Workers have a 1MB limit on code size. If you hit this:
 ## License
 
 MIT
-## 🚀 Workflow & Best Practices
+
+## 🚀 Workflow ## 🚀 Workflow & Best Practices Best Practices
 
 This template enforces a strict, automated workflow to ensure high code quality and clear history.
 
