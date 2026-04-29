@@ -29,13 +29,6 @@ jobs:
           cache: "pnpm"
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Disable Automatic Analysis
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-          curl -s -u "$SONAR_TOKEN:" -X POST \
-            "https://sonarcloud.io/api/autoscan/activation?enable=false&projectKey=${{ github.repository_owner }}_${{ github.event.repository.name }}" \
-            || true
       - name: Generate coverage report
         run: pnpm test:coverage
       - name: SonarCloud Scan
