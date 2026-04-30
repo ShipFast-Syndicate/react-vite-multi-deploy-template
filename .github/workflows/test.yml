@@ -1,17 +1,21 @@
 name: Tests
+
 on:
   push:
     branches: [main, develop]
     paths-ignore:
-      - "**.md"
-      - "docs/**"
-      - ".github/ISSUE_TEMPLATE/**"
+      - '**.md'
+      - 'docs/**'
+      - '.github/ISSUE_TEMPLATE/**'
+      - 'LICENSE'
   pull_request:
     branches: [main, develop]
     paths-ignore:
-      - "**.md"
-      - "docs/**"
-      - ".github/ISSUE_TEMPLATE/**"
+      - '**.md'
+      - 'docs/**'
+      - '.github/ISSUE_TEMPLATE/**'
+      - 'LICENSE'
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -19,25 +23,11 @@ concurrency:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-      - uses: pnpm/action-setup@v6
-        with:
-          version: 9
-      - uses: actions/setup-node@v6
-        with:
-          node-version: 22
-          cache: pnpm
-      - name: Cache node_modules
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: node-modules-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: node-modules-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-      - name: Check for duplicate packages
-        run: pnpm dedupe --check
-      - name: Run tests
-        run: pnpm test:run
+    uses: ShipFast-Syndicate/.github/.github/workflows/reusable-test.yml@v0.1.0
+    with:
+      test-command: 'pnpm test:run'
+
+  build:
+    uses: ShipFast-Syndicate/.github/.github/workflows/reusable-build.yml@v0.1.0
+    with:
+      build-matrix: '[{"target":"default","command":"pnpm build","env":"","allow-failure":false}]'
