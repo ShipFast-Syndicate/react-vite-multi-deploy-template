@@ -8,6 +8,6 @@ on:
 
 jobs:
   scan:
-    uses: ShipFast-Syndicate/.github/.github/workflows/reusable-gitleaks.yml@v0.1.0
+    uses: ShipFast-Syndicate/.github/.github/workflows/reusable-gitleaks.yml@v0.1.2
     with:
       config-path: .gitleaks.toml

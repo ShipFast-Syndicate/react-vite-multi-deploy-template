@@ -11,4 +11,4 @@ concurrency:
 
 jobs:
   audit:
-    uses: ShipFast-Syndicate/.github/.github/workflows/reusable-security-audit.yml@v0.1.0
+    uses: ShipFast-Syndicate/.github/.github/workflows/reusable-security-audit.yml@v0.1.2

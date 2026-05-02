@@ -7,4 +7,4 @@ on:
 
 jobs:
   check:
-    uses: ShipFast-Syndicate/.github/.github/workflows/reusable-pr-base-check.yml@v0.1.0
+    uses: ShipFast-Syndicate/.github/.github/workflows/reusable-pr-base-check.yml@v0.1.2

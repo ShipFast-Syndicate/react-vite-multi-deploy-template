@@ -23,11 +23,11 @@ concurrency:
 
 jobs:
   test:
-    uses: ShipFast-Syndicate/.github/.github/workflows/reusable-test.yml@v0.1.0
+    uses: ShipFast-Syndicate/.github/.github/workflows/reusable-test.yml@v0.1.2
     with:
       test-command: 'pnpm test:run'
 
   build:
-    uses: ShipFast-Syndicate/.github/.github/workflows/reusable-build.yml@v0.1.0
+    uses: ShipFast-Syndicate/.github/.github/workflows/reusable-build.yml@v0.1.2
     with:
       build-matrix: '[{"target":"default","command":"pnpm build","env":"","allow-failure":false}]'
